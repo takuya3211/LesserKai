@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B0A121EF18F4EC4600BAE5AE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0A121EE18F4EC4600BAE5AE /* main.cpp */; };
 		B0A121F118F4EC4600BAE5AE /* LesserKai.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = B0A121F018F4EC4600BAE5AE /* LesserKai.1 */; };
+		B0A1220418F4EC5D00BAE5AE /* Globals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0A121F718F4EC5D00BAE5AE /* Globals.cpp */; };
+		B0A1220518F4EC5D00BAE5AE /* Joseki.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0A121F818F4EC5D00BAE5AE /* Joseki.cpp */; };
+		B0A1220618F4EC5D00BAE5AE /* KomaMoves.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0A121F918F4EC5D00BAE5AE /* KomaMoves.cpp */; };
+		B0A1220718F4EC5D00BAE5AE /* Kyokumen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0A121FA18F4EC5D00BAE5AE /* Kyokumen.cpp */; };
+		B0A1220818F4EC5D00BAE5AE /* Lesserkai.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0A121FC18F4EC5D00BAE5AE /* Lesserkai.cpp */; };
+		B0A1220918F4EC5D00BAE5AE /* Sikou.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0A121FD18F4EC5D00BAE5AE /* Sikou.cpp */; };
+		B0A1220A18F4EC5D00BAE5AE /* Te.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0A121FF18F4EC5D00BAE5AE /* Te.cpp */; };
+		B0A1220B18F4EC5D00BAE5AE /* USIUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0A1220018F4EC5D00BAE5AE /* USIUtil.cpp */; };
+		B0A1220C18F4EC5D00BAE5AE /* WinAPI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0A1220218F4EC5D00BAE5AE /* WinAPI.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,8 +34,20 @@
 
 /* Begin PBXFileReference section */
 		B0A121EB18F4EC4600BAE5AE /* LesserKai */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LesserKai; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0A121EE18F4EC4600BAE5AE /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		B0A121F018F4EC4600BAE5AE /* LesserKai.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = LesserKai.1; sourceTree = "<group>"; };
+		B0A121F718F4EC5D00BAE5AE /* Globals.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Globals.cpp; path = ../Globals.cpp; sourceTree = "<group>"; };
+		B0A121F818F4EC5D00BAE5AE /* Joseki.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Joseki.cpp; path = ../Joseki.cpp; sourceTree = "<group>"; };
+		B0A121F918F4EC5D00BAE5AE /* KomaMoves.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = KomaMoves.cpp; path = ../KomaMoves.cpp; sourceTree = "<group>"; };
+		B0A121FA18F4EC5D00BAE5AE /* Kyokumen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Kyokumen.cpp; path = ../Kyokumen.cpp; sourceTree = "<group>"; };
+		B0A121FB18F4EC5D00BAE5AE /* Kyokumen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Kyokumen.h; path = ../Kyokumen.h; sourceTree = "<group>"; };
+		B0A121FC18F4EC5D00BAE5AE /* Lesserkai.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Lesserkai.cpp; path = ../Lesserkai.cpp; sourceTree = "<group>"; };
+		B0A121FD18F4EC5D00BAE5AE /* Sikou.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sikou.cpp; path = ../Sikou.cpp; sourceTree = "<group>"; };
+		B0A121FE18F4EC5D00BAE5AE /* Sikou.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sikou.h; path = ../Sikou.h; sourceTree = "<group>"; };
+		B0A121FF18F4EC5D00BAE5AE /* Te.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Te.cpp; path = ../Te.cpp; sourceTree = "<group>"; };
+		B0A1220018F4EC5D00BAE5AE /* USIUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = USIUtil.cpp; path = ../USIUtil.cpp; sourceTree = "<group>"; };
+		B0A1220118F4EC5D00BAE5AE /* USIUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = USIUtil.h; path = ../USIUtil.h; sourceTree = "<group>"; };
+		B0A1220218F4EC5D00BAE5AE /* WinAPI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WinAPI.cpp; path = ../WinAPI.cpp; sourceTree = "<group>"; };
+		B0A1220318F4EC5D00BAE5AE /* WinAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WinAPI.h; path = ../WinAPI.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +80,19 @@
 		B0A121ED18F4EC4600BAE5AE /* LesserKai */ = {
 			isa = PBXGroup;
 			children = (
-				B0A121EE18F4EC4600BAE5AE /* main.cpp */,
+				B0A121F718F4EC5D00BAE5AE /* Globals.cpp */,
+				B0A121F818F4EC5D00BAE5AE /* Joseki.cpp */,
+				B0A121F918F4EC5D00BAE5AE /* KomaMoves.cpp */,
+				B0A121FA18F4EC5D00BAE5AE /* Kyokumen.cpp */,
+				B0A121FB18F4EC5D00BAE5AE /* Kyokumen.h */,
+				B0A121FC18F4EC5D00BAE5AE /* Lesserkai.cpp */,
+				B0A121FD18F4EC5D00BAE5AE /* Sikou.cpp */,
+				B0A121FE18F4EC5D00BAE5AE /* Sikou.h */,
+				B0A121FF18F4EC5D00BAE5AE /* Te.cpp */,
+				B0A1220018F4EC5D00BAE5AE /* USIUtil.cpp */,
+				B0A1220118F4EC5D00BAE5AE /* USIUtil.h */,
+				B0A1220218F4EC5D00BAE5AE /* WinAPI.cpp */,
+				B0A1220318F4EC5D00BAE5AE /* WinAPI.h */,
 				B0A121F018F4EC4600BAE5AE /* LesserKai.1 */,
 			);
 			path = LesserKai;
@@ -117,7 +149,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0A121EF18F4EC4600BAE5AE /* main.cpp in Sources */,
+				B0A1220A18F4EC5D00BAE5AE /* Te.cpp in Sources */,
+				B0A1220C18F4EC5D00BAE5AE /* WinAPI.cpp in Sources */,
+				B0A1220618F4EC5D00BAE5AE /* KomaMoves.cpp in Sources */,
+				B0A1220818F4EC5D00BAE5AE /* Lesserkai.cpp in Sources */,
+				B0A1220418F4EC5D00BAE5AE /* Globals.cpp in Sources */,
+				B0A1220718F4EC5D00BAE5AE /* Kyokumen.cpp in Sources */,
+				B0A1220518F4EC5D00BAE5AE /* Joseki.cpp in Sources */,
+				B0A1220B18F4EC5D00BAE5AE /* USIUtil.cpp in Sources */,
+				B0A1220918F4EC5D00BAE5AE /* Sikou.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
