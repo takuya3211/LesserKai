@@ -119,7 +119,7 @@ public:
 	// こうすることで、Teの配列を宣言するたびに無駄な初期化処理が走ることを避けられます。
 	inline Te() {};
 	// 本当にTeを空のデータで初期化したい時のためのコンストラクタです。
-	inline Te(int i) {
+	inline Te(int i) {//iに意味はなさそうな感じ
 		from=to=koma=capture=promote=Kind=0;
 		value=0;
 	}
@@ -138,7 +138,7 @@ public:
 		FPrint(stdout);
 	}
 	// 同上
-	void FPrint(FILE *fp);
+	void FPrint(FILE *fp);//ファイルに出力されてるのか？stdoutはUSIとの通信っぽいけど
 
 	//void PrintToBuf(char *buf);
 

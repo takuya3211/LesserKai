@@ -138,7 +138,7 @@ int main()
 	}
 
 	// エンジン設定のデフォルト値を設定。
-	string bookFileStr = "public.bin";//どこで使うんだろ2015/4/1
+	string bookFileStr = "public.bin";//どこで使うんだろ2015/4/1 実行ファイルと同じフォルダに入れる定跡ファイル
 	bool isUseJoseki = "false";//定跡を使うか否かだと思う。挙動変わらないな2015/4/1
 
 	srand((unsigned)time(NULL)); // Sikou::Think()で定跡をランダムに選べるようにするため。
@@ -181,7 +181,7 @@ int main()
 			if (strncmp(buf, "usi", len) == 0) {//ifは0が偽だから == 0で逆にしてる
 				// エンジン起動時、一番最初に呼ばれるコマンド。これに対してエンジンのidを返したあと、
 				// エンジンで設定可能なパラメータをoptionコマンドで返し、最後にusiokを返す必要がある。
-				printf("id name Tapperkai 0.0.1\n");//aaa
+				printf("id name shure 0.0.1\n");//aaa
 				printf("id author Takuya\n");
 				printf("option name BookFile type string default %s\n", bookFileStr.c_str());
 				printf("option name UseBook type check default %s\n", isUseJoseki ? "true" : "false");
@@ -194,7 +194,7 @@ int main()
 				// エンジンに設定するパラメータが送られてくるのでそれを設定し、
 				// エンジン固有のパラメータであれば初期設定ファイルに保存する。
 				if (strncmp(buf, "setoption name USI_Ponder value true", len) == 0) {
-					canPonder = true;
+					canPonder = true;//USIからのPonderオンオフの問い合わせに答える
 				} else if (strncmp(buf, "setoption name USI_Ponder value false", len) == 0) {
 					canPonder = false;
 				} else if (strncmp(buf, "setoption name USI_Hash value ", strlen("setoption name USI_Hash value ")) == 0) {
@@ -288,7 +288,7 @@ int main()
 					continue;
 				}
 				isPonderThink = false;
-				USIUtil::ParseAllTimes(buf, SorE);
+				USIUtil::ParseAllTimes(buf, SorE);//先手後手の持ち時間などをバッファから分解して読み込む
 				if (strncmp(buf, "go infinite", strlen("go infinite")) == 0) {
 					thinkDepthMax = 8; // go infiniteの場合だけ8にする。
 				}

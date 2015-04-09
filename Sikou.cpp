@@ -403,8 +403,8 @@ Te Sikou::Think(int SorE,KyokumenKomagumi k, bool isUseJoseki, Te* ponderTe)
 	evaluatedNodes = 0;
 
 	// depthMaxは適当に残り時間に合わせて調整するなどの工夫が必要です。
-	//int depthMax=8; // 4から8に変更。
-	int depthMax = thinkDepthMax; // 通常は4で、go infiniteなら8
+	int depthMax=8; // 4から8に変更。
+	//int depthMax = thinkDepthMax; // 通常は4で、go infiniteなら8
 	for(i=0;i<MAX_DEPTH;i++) {
 		for(j=0;j<MAX_DEPTH;j++) {
 			Best[i][j]=Te(0);

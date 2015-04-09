@@ -12,7 +12,7 @@
 
 using namespace std;
 
-uint64 Kyokumen::HashSeed[ERY+1][0x99+1];//0x99は９九を表す
+uint64 Kyokumen::HashSeed[ERY+1][0x99+1];
 uint64 Kyokumen::HandHashSeed[EHI+1][18+1];
 
 uint64 Kyokumen::HashHistory[1000];
@@ -23,7 +23,7 @@ void Kyokumen::HashInit()
 	int i;
 	for(i=0;i<=ERY;i++) {
 		for(int pos=0x11;pos<=0x99;pos++) {
-			HashSeed[i][pos]=(((uint64)rand())<<49)|
+			HashSeed[i][pos]=(((uint64)rand())<<49)|//そのままrand()だと16bitだから複数使って64ビットの長さにしてる
 							 (((uint64)rand())<<34)|
 							 (((uint64)rand())<<19)|
 							 (((uint64)rand())<<4)|
@@ -118,10 +118,10 @@ void Kyokumen::InitKyokumen(int tesu, KomaInf board[9][9], int Motigoma[])
 			ban[suji+dan]=board[dan-1][9-suji/0x10];
 			KyokumenHashVal^=HashSeed[ban[suji+dan]][suji+dan];
 			if (ban[suji+dan]==SOU) {
-				kingS=suji+dan;
+				kingS=suji+dan;//自玉の位置
 			}
 			if (ban[suji+dan]==EOU) {
-				kingE=suji+dan;
+				kingE=suji+dan;//敵玉の位置
 			}
 			value+=KomaValue[ban[suji+dan]];
 		}
