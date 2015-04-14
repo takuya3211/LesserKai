@@ -50,8 +50,8 @@ void Kyokumen::HashInit()
 Kyokumen::Kyokumen(int tesu,KomaInf board[9][9],int Motigoma[])
 {
 	// 盤面をWALL（壁）で埋めておきます。
-	memset(banpadding,WALL,sizeof(banpadding));
-	memset(ban,WALL,sizeof(ban));
+	memset(banpadding,WALL,sizeof(banpadding));//memsetでWALL(char)で埋めてるbandaddingは桂馬で飛び出す範囲
+	memset(ban,WALL,sizeof(ban));//この段階では全部WALL
 	// 初期化
 	value=0;
 	kingS=0;
@@ -63,30 +63,30 @@ Kyokumen::Kyokumen(int tesu,KomaInf board[9][9],int Motigoma[])
 	KyokumenHashVal=0;
 	// boardで与えられた局面を設定します。
 	for(int dan=1;dan<=9;dan++) {
-		for(int suji=0x10;suji<=0x90;suji+=0x10) {
+		for(int suji=0x10;suji<=0x90;suji+=0x10) {//16進数で表し7八なら0x78で位置を表す
 			// 将棋の筋は左から右なので、配列の宣言と逆になるため、筋はひっくり返さないとなりません。
 			ban[suji+dan]=board[dan-1][9-suji/0x10];
-			KyokumenHashVal^=HashSeed[ban[suji+dan]][suji+dan];
+			KyokumenHashVal^=HashSeed[ban[suji+dan]][suji+dan];//^=はビット単位の排他OR代入演算子
 			if (ban[suji+dan]==SOU) {
-				kingS=suji+dan;
+				kingS=suji+dan;//自分の王の位置
 			}
 			if (ban[suji+dan]==EOU) {
-				kingE=suji+dan;
+				kingE=suji+dan;//敵の王の位置
 			}
-			value+=KomaValue[ban[suji+dan]];
+			value+=KomaValue[ban[suji+dan]];//駒の合計点を出す
 		}
 	}
 	// 持ち駒はそのまま利用します。
 	int i;
 	for(i=0;i<=EHI;i++) {
 		Hand[i]=Motigoma[i];
-		value+=HandValue[i]*Hand[i];
-		for(int j=1;j<=Hand[i];j++) {
+		value+=HandValue[i]*Hand[i];//HandValueはKomaMovesで定義してるそれぞれの持ち駒の価値
+		for(int j=1;j<=Hand[i];j++) {//Hand[i]はそれぞれの持ち駒の枚数 //20150409
 			HandHashVal^=HandHashSeed[i][j];
 		}
 	}
 	HashVal=KyokumenHashVal^HandHashVal;
-	for(i=0;i<Tesu;i++) {
+	for(i=0;i<Tesu;i++) {//Tesuまでってどういうことだろう
 		HashHistory[i]=0;
 		OuteHistory[i]=0;
 	}
@@ -192,12 +192,12 @@ void Kyokumen::InitControl()
 void Kyokumen::Move(int SorE,const Te &te)
 {
 	int i,j,b,bj;
-	if (te.from>0x10) {
+	if (te.from>0x10) {//盤上の駒かの判断
 		// 元いた駒のコントロールを消す
 		int dir;
 		for(dir=0,b=1,bj=1<<16;dir<12;dir++,b<<=1,bj<<=1) {
 			if (SorE==SELF) {
-				controlS[te.from+Direct[dir]]&=~b;
+				controlS[te.from+Direct[dir]]&=~b;//ビット反転したbとのand演算
 			} else {
 				controlE[te.from+Direct[dir]]&=~b;
 			}
@@ -216,8 +216,8 @@ void Kyokumen::Move(int SorE,const Te &te)
 		// 元いた位置は空白になる
 		ban[te.from]=EMPTY;
 		// 空白になったことで変わるハッシュ値
-		KyokumenHashVal^=HashSeed[te.koma][te.from];
-		KyokumenHashVal^=HashSeed[EMPTY][te.from];
+		KyokumenHashVal^=HashSeed[te.koma][te.from];//元居た駒の種類と場所 ^はXOR
+		KyokumenHashVal^=HashSeed[EMPTY][te.from];//駒が居なくなるから空になる
 		// 飛び利きを伸ばす
 		for (i = 0, bj = (1<<16); i < 8; i++, bj<<=1) {
 			int Dir=Direct[i];
@@ -236,14 +236,15 @@ void Kyokumen::Move(int SorE,const Te &te)
 				} while (ban[j] == EMPTY);
 			}
 		}
-	} else {
+	} else {//持ち駒から打った
 		// 持ち駒から一枚減らす
 		HandHashVal^=HandHashSeed[te.koma][Hand[te.koma]];
-		Hand[te.koma]--;
-		value-=HandValue[te.koma];
-		value+=KomaValue[te.koma];
+		Hand[te.koma]--;//打った駒の枚数を一枚減らす
+		value-=HandValue[te.koma];//評価値から打った持ち駒の分を減らして
+		value+=KomaValue[te.koma];//盤上の駒の評価値を足す　盤上と持ち駒で点数が違うから
+        
 	}
-	if (ban[te.to]!=EMPTY) {
+	if (ban[te.to]!=EMPTY) {//移動先に駒が有った場合
 		// 相手の駒を持ち駒にする。
 		// 持ち駒にする時は、成っている駒も不成りに戻す。（&~PROMOTED）
 		value-=KomaValue[ban[te.to]];
