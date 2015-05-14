@@ -181,7 +181,7 @@ int main()
 			if (strncmp(buf, "usi", len) == 0) {//ifは0が偽だから == 0で逆にしてる
 				// エンジン起動時、一番最初に呼ばれるコマンド。これに対してエンジンのidを返したあと、
 				// エンジンで設定可能なパラメータをoptionコマンドで返し、最後にusiokを返す必要がある。
-				printf("id name shure 0.0.1\n");//aaa
+				printf("id name tenkara 0.0.1\n");//aaa
 				printf("id author Takuya\n");
 				printf("option name BookFile type string default %s\n", bookFileStr.c_str());
 				printf("option name UseBook type check default %s\n", isUseJoseki ? "true" : "false");

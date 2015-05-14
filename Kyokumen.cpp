@@ -490,21 +490,21 @@ int Kyokumen::MakeLegalMoves(int SorE,Te *teBuf,int *pin)
 // 盤面のfromにある駒を動かす手を生成する。
 void Kyokumen::AddMoves(int SorE,int &teNum,Te *teTop,int from,int pin,int Rpin)
 {
-	switch(ban[from]) {
+	switch(ban[from]) {//例えば8九は8*16 + 9番目の1次元配列に入ってる
 	case SFU:
-		AddMove(SorE,teNum,teTop,from,-1,pin,Rpin);
+		AddMove(SorE,teNum,teTop,from,-1,pin,Rpin);//上に動く
 		break;
 	case EFU:
-		AddMove(SorE,teNum,teTop,from,+1,pin,Rpin);
+		AddMove(SorE,teNum,teTop,from,+1,pin,Rpin);//下に動く
 		break;
 	case SKY:
-		AddStraight(SorE,teNum,teTop,from,-1,pin,Rpin);
+		AddStraight(SorE,teNum,teTop,from,-1,pin,Rpin);//上に走る
 		break;
 	case EKY:
-		AddStraight(SorE,teNum,teTop,from,+1,pin,Rpin);
+		AddStraight(SorE,teNum,teTop,from,+1,pin,Rpin);//下に走る
 		break;
 	case SKE:
-		AddMove(SorE,teNum,teTop,from,+14,pin,Rpin);
+		AddMove(SorE,teNum,teTop,from,+14,pin,Rpin);//
 		AddMove(SorE,teNum,teTop,from,-18,pin,Rpin);
 		break;
 	case EKE:
